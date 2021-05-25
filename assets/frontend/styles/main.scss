@@ -1,0 +1,265 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: #c2c2c2;
+}
+
+nav{
+
+
+    .navbar-brand{
+        margin-left: 95px;
+        margin-top: 30px;
+    }
+
+    .navbar-nav{
+        margin-right: 100px;
+        margin-top: 30px;
+
+        .nav-item{
+
+            .nav-link{
+                color: #000;
+                font-size: 18px;
+
+                &.active{
+                    color: #000;
+                    font-size: 18px;
+                    text-decoration-line: underline;
+                }
+            }
+        }
+    }
+}
+
+.header-home{
+    margin-top: 50px;
+
+    .image-header{
+
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+
+    .heading-home{
+        width: 426px;
+        position: absolute;
+        margin-left: 450px;
+        margin-right: 450px;
+        margin-top: -400px;
+        font-size: 48px;
+        color: #fff;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    .sub-heading{
+        width: 390px;
+        position: absolute;
+        font-size: 18px;
+        font-weight: normal;
+        text-align: center;
+        color: #fff;
+        margin-left: 470px;
+        margin-right: 470px;
+        margin-top: -280px;
+
+    }
+
+    .btn-header{
+        margin-top: -380px !important;
+        background-color: #fff;
+        color: #000;
+        border-radius: 50px;
+
+        &:hover{
+            background-color: #000;
+            color: #fff;
+        }
+    }
+}
+
+.menu-section{
+    margin-top: 120px;
+
+    .menu-heading{
+
+        h2{
+            font-size: 32px;
+            font-weight: 600;
+        }
+    }
+
+    .menu-list{
+        margin-top: 40px;
+            
+        .btn-menu{
+            margin-left: 10px;
+            margin-right: 10px;
+            border-color: #f4f4f4;
+            background-color: #fff;
+            border-radius: 50px;
+            width: 180px;
+            height: 50px;
+            padding-top: 15px;
+            color: #000;
+
+            &.active{
+                background-color: #ffca99;
+                color: #000;
+                border-color: #ffca99;
+            }
+        }
+    }
+}
+
+.image-section{
+    margin-top: 40px;
+    margin-left: 50px;
+    margin-right: 50px;
+
+    .image-content{
+        margin-top: 30px;
+    }
+
+    .btn-load-more{
+        margin-top: 50px;
+        margin-bottom: 150px;
+        width: 180px;
+        background-color: #ffca99;
+        color: #000;
+        font-weight: normal;
+    }
+}
+
+.footer-section{
+    background-color: #fff;
+    
+    .footer-brand{
+        margin-bottom: 30px;
+    }
+
+    .description-text{
+        
+        .description{
+            font-size: 18px;
+            text-align: justify;
+            width: 400px;
+        }
+
+        .phone{
+            font-size: 18px;
+            text-align: justify;
+        }
+
+        .instagram{
+            font-size: 18px;
+            text-align: justify;
+        }
+    }
+
+    .heading-list{
+
+        .heading{
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .menu-footer-list{
+            list-style: none;
+            margin-left: -30px;
+
+            a{
+                text-decoration: none;
+                color: #000;
+                font-size: 18px;
+            }
+        }
+    }
+
+    .footer-text{
+        margin-top: 120px;
+        p{
+            font-size: 14px;
+
+        }
+    }
+}
+
+.main-content-login{
+
+    .logo-brand{
+
+        margin-top: 70px;
+        margin-left: 100px;
+        margin-right: auto;
+    }
+
+    .heading-login{
+
+        p{
+            font-size: 32px;
+            font-weight: bold;
+            margin-left: 100px;
+            margin-right: auto;
+        }
+    }
+
+    .card-login{
+        border-radius: 30px;
+        margin-left: 100px;
+        margin-right: auto;
+        background-color: #F6F8FB;
+        box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.1);
+
+        .form-login{
+            margin-top: 30px;
+            .form-group{
+                margin-bottom: 30px;
+                label{
+                    font-size: 14px;
+                    line-height: 30px;
+                    color: #ACACAC;
+                    
+                }
+    
+                .form-input{
+    
+                    input{
+                        border-radius: 30px;
+                        background-color: #FCECDD;
+                    }
+                }
+            }
+
+            .btn-login{
+                border-radius: 30px;
+                background-color: #ffca99;
+                width: 325px;
+                color: #fff;
+            }
+
+            .btn-register{
+                border-radius: 30px;
+                background-color: #ffca99;
+                width: 325px;
+                color: #fff;
+            }
+        }
+
+        .btn-forgot{
+            margin-top: 10px;
+            border-radius: 30px;
+            background-color: #FCECDD;
+            width: 325px;
+            color: #000;
+        }
+
+        .section-register{
+            color: #ACACAC;
+            margin-top: 30px;
+            a{
+                text-decoration: none;
+                color: #000;
+            }
+        }
+    }
+}
