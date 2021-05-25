@@ -48,7 +48,7 @@
     </a>
     <div id="design" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="#">Lihat Designer</a>
+            <a class="collapse-item" href="<?= base_url('admin/designer') ;?>">Lihat Designer</a>
         </div>
     </div>
 </li>

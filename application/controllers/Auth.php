@@ -5,11 +5,66 @@ class Auth extends CI_Controller {
 
     public function login(){
 
-        $data = array(
-            'judul' => 'MYN - Sign In',
-        );
+        $this->form_validation->set_rules('email', 'Email Address', 'required|trim|valid_email');
+        $this->form_validation->set_rules('password', 'Password', 'required|trim');
 
-        $this->load->view('client/auth/login', $data);
+        if($this->form_validation->run() == false){
+            $data = array(
+                'judul' => 'MYN - Sign In',
+            );
+    
+            $this->load->view('client/auth/login', $data);
+        } else {
+
+            $email = $this->input->post('email');
+            $password = $this->input->post('password');
+
+            $password_login = md5($password);
+
+            $user = $this->db->get_where('user', ['email' => $email, 'password' => $password_login])->row_array();
+
+            if($user){
+
+                if($user['status'] == 1 ){
+
+                    if($user['role'] == 2){
+
+                        $data = array(
+                            'email' => $user['email'],
+                            'nama' => $user['nama']
+                        );
+    
+                        $this->session->set_userdata($data);
+    
+                        redirect('home');
+
+                    } else {
+
+                        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Maaf, hanya designer yang dapat melakukan Sign In</div>');
+                        
+                        redirect('auth/login');
+
+                    }
+
+                    
+                } else {
+
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Maaf, akun anda belum terverifikasi, silahkan hubungi admin untuk melakukan verifikasi </div>');
+                    
+                    redirect('auth/login');
+                }
+
+            } else {
+
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Email atau Password salah </div>');
+
+                redirect('auth/login');
+
+            }
+        }
+
+
+        
     }
 
     public function register(){
@@ -63,8 +118,5 @@ class Auth extends CI_Controller {
             redirect('auth/login');
 
         }
-
-        
-
     }
 }

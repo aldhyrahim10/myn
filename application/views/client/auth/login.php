@@ -38,13 +38,15 @@
                                     <div class="form-group">
                                         <label for="">Email Address</label>
                                         <div class="form-input">
-                                            <input class="form-control" type="text" name="email" id="email">
+                                            <input class="form-control" value="<?= set_value('email');?>" type="text" name="email" id="email">
+                                            <?= form_error('email', '<small class="text-danger pl-3"></small>') ;?>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Password</label>
                                         <div class="form-input">
-                                            <input class="form-control" type="password" name="password" id="password">
+                                            <input class="form-control" value="<?= set_value('password');?>" type="password" name="password" id="password">
+                                            <?= form_error('password', '<small class="text-danger pl-3"></small>') ;?>
                                         </div>
                                     </div>
                                     <button class="btn btn-login" type="submit">Sign In</button>
