@@ -23,15 +23,24 @@ class Auth extends CI_Controller{
 
 
             if($user){
+
+                if($user['role'] == 1){
+                    $data = array (
+                        'nama' => $user['nama'],
+                        'email' => $user['email']
+                    );
+    
+                    $this->session->set_userdata($data);
+    
+                    redirect('admin/dashboard');
+                } else {
+
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Maaf, hanya Admin yang dapat masuk </div>');
+
+                    redirect('admin/auth');
+                }
                 
-                $data = array (
-                    'nama' => $user['nama'],
-                    'email' => $user['email']
-                );
-
-                $this->session->set_userdata($data);
-
-                redirect('admin/dashboard');
+                
 
                 
             } else {
@@ -52,7 +61,7 @@ class Auth extends CI_Controller{
         $this->session->unset_userdata('nama');
         $this->session->unset_userdata('email');
 
-        redirect('admin/auth');
+        redirect('admin');
         
     }
 

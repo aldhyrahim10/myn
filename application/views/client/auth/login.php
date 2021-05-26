@@ -54,9 +54,9 @@
                                 <!-- <a href="#" class="btn btn-forgot">Lupa Password</a> -->
                                 
                                 <div class="section-register">
-                                    <p class="text-center">Belum punya akun? <span><a href="<?= base_url('auth/register');?>">Register</a></span></p>
+                                    <p class="text-center">Belum punya akun? <span><a href="<?= base_url('register');?>">Register</a></span></p>
                                     <div class="text-center">
-                                        <a class="" href="<?= base_url('home');?>">Back to Home</a>
+                                        <a class="" href="<?= base_url('');?>">Back to Home</a>
                                     </div>
                                 </div>    
                             </div>

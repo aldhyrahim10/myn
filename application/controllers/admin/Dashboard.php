@@ -20,15 +20,17 @@ class Dashboard extends CI_Controller {
         $user = $this->session->userdata('nama');
 
         $data_catalog = $this->dashboard_model->catalog();
-        $data_designer = $this->dashboard_model->designer();
+        $data_designer_verified = $this->dashboard_model->designer_verified();
         $data_category = $this->dashboard_model->category();
+        $data_designer_unverified = $this->dashboard_model->designer_unverified();
 
 
         $data = array(
             'judul' => 'Dashboard',
             'page' => 'admin/dashboard',
             'catalog' => $data_catalog,
-            'designer' => $data_designer,
+            'designer_verified' => $data_designer_verified,
+            'designer_unverified' => $data_designer_unverified,
             'category' => $data_category,
             'user' => $user
         );

@@ -5,9 +5,12 @@ class Home extends CI_Controller {
 
     public function index(){
 
+        $user = $this->session->userdata('nama');
+
         $data = array(
             'judul' => 'MYN - Home',
-            'page' => 'client/home'
+            'page' => 'client/home',
+            'user' => $user
         );
 
         $this->load->view('theme/client/index', $data);

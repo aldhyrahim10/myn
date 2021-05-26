@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 24 Bulan Mei 2021 pada 12.03
+-- Waktu pembuatan: 26 Bulan Mei 2021 pada 08.41
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.4.16
 
@@ -72,6 +72,7 @@ INSERT INTO `category` (`id_category`, `nama_category`) VALUES
 CREATE TABLE `designer` (
   `id_designer` int(11) NOT NULL,
   `nama_designer` varchar(128) NOT NULL,
+  `email_designer` varchar(128) NOT NULL,
   `telp_designer` varchar(15) NOT NULL,
   `alamat_designer` text NOT NULL,
   `maps` text NOT NULL
@@ -81,8 +82,10 @@ CREATE TABLE `designer` (
 -- Dumping data untuk tabel `designer`
 --
 
-INSERT INTO `designer` (`id_designer`, `nama_designer`, `telp_designer`, `alamat_designer`, `maps`) VALUES
-(1, 'Miskah', '089976823231', 'Jl. Mawar Melati No. 32 Semarang', 'https://maps.google.com/');
+INSERT INTO `designer` (`id_designer`, `nama_designer`, `email_designer`, `telp_designer`, `alamat_designer`, `maps`) VALUES
+(1, 'Miskah', '', '089976823231', 'Jl. Mawar Melati No. 32 Semarang', 'https://maps.google.com/'),
+(2, 'Miskah Alfiyyah Kulsum', 'miskah@gmail.com', '087788832424', 'jl. Merdeka 3 No. 32 Bandung', ''),
+(3, 'Muhammad Valensyah', 'valen@gmail.com', '0812234334556', 'jl. Pahlawan Raya No. 40 Bandung', '');
 
 -- --------------------------------------------------------
 
@@ -95,15 +98,18 @@ CREATE TABLE `user` (
   `nama` varchar(128) NOT NULL,
   `email` varchar(128) NOT NULL,
   `password` varchar(128) NOT NULL,
-  `role` int(1) NOT NULL
+  `role` int(1) NOT NULL COMMENT '1=admin\r\n2=designer',
+  `status` int(1) NOT NULL COMMENT '0=not active\r\n1 = active'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`id`, `nama`, `email`, `password`, `role`) VALUES
-(1, 'admin', 'admin@gmail.com', '0192023a7bbd73250516f069df18b500', 1);
+INSERT INTO `user` (`id`, `nama`, `email`, `password`, `role`, `status`) VALUES
+(1, 'admin', 'admin@gmail.com', '0192023a7bbd73250516f069df18b500', 1, 1),
+(2, 'Miskah Alfiyyah Kulsum', 'miskah@gmail.com', '3b3aa58a4a922f81c38fb8bb7e2a41a0', 2, 1),
+(3, 'Muhammad Valensyah', 'valen@gmail.com', 'eed59ea2337108e10d5dced609999557', 2, 0);
 
 --
 -- Indexes for dumped tables
@@ -155,13 +161,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT untuk tabel `designer`
 --
 ALTER TABLE `designer`
-  MODIFY `id_designer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_designer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

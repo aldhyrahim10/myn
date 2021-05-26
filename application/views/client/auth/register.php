@@ -80,7 +80,7 @@
 
                                 <div class="section-register">
                                     <div class="text-center">
-                                        <a class="" href="<?= base_url('auth/login');?>">Back to Sign In</a>
+                                        <a class="" href="<?= base_url('login');?>">Back to Sign In</a>
                                     </div>
                                 </div> 
                             </div>

@@ -14,10 +14,23 @@ class Dashboard_model extends CI_Model{
 
     }
 
-    public function designer(){
+    public function designer_verified(){
 
-        $this->db->select('COUNT(id_designer)  as total');
-        $this->db->from('designer');
+        $this->db->select('COUNT(id)  as total');
+        $this->db->from('user');
+        $this->db->where('status', 1);
+        $query = $this->db->get();
+
+		// $query -> result_array = mengirim data ke controller dalam bentuk semua data
+        return $query->result_array();
+
+    }
+
+    public function designer_unverified(){
+
+        $this->db->select('COUNT(id)  as total');
+        $this->db->from('user');
+        $this->db->where('status', 0);
         $query = $this->db->get();
 
 		// $query -> result_array = mengirim data ke controller dalam bentuk semua data

@@ -47,4 +47,24 @@ class Designer extends CI_Controller{
 
         redirect('admin/designer');
     }
+
+    public function detail(){
+
+        $user = $this->session->userdata('nama');
+
+        $id = $this->uri->segment(4);
+
+        $data_user = $this->designer_model->read_single($id);
+
+        $data_designer = $this->db->get_where('designer', ['nama_designer' => $data_user['nama']])->row_array();
+
+        $data = array(
+            'judul' => 'Detail Designer',
+            'page' => 'admin/designer/detail',
+            'user' => $user,
+            'designer' => $data_designer
+        );
+
+        $this->load->view('theme/admin/index', $data);
+    }
 }

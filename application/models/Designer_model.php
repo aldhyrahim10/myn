@@ -13,4 +13,17 @@ class Designer_model extends CI_Model {
 
         return $query->result_array();
     }
+
+    public function read_single($id){
+
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('id', $id);
+
+        $query = $this->db->get();
+
+        return $query->row_array();
+    }
+
+
 }

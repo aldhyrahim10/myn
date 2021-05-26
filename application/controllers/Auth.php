@@ -61,10 +61,7 @@ class Auth extends CI_Controller {
                 redirect('auth/login');
 
             }
-        }
-
-
-        
+        }   
     }
 
     public function register(){
@@ -118,5 +115,13 @@ class Auth extends CI_Controller {
             redirect('auth/login');
 
         }
+    }
+
+    public function logout(){
+
+        $this->session->unset_userdata('nama');
+        $this->session->unset_userdata('email');
+
+        redirect('login');
     }
 }
