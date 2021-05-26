@@ -10,10 +10,10 @@
         <div class="collapse navbar-collapse" id="navb">
             <ul class="navbar-nav ml-auto mr-">
                 <li class="nav-item mx-md-2">
-                    <a href="#" class="nav-link active">Home</a>
+                    <a href="<?= base_url('home') ;?>" class="nav-link active">Home</a>
                 </li>
                 <li class="nav-item mx-md-2">
-                    <a href="#" class="nav-link">Catalog</a>
+                    <a href="<?= base_url('catalog') ;?>" class="nav-link">Catalog</a>
                 </li>
                 <li class="nav-item mx-md-2">
                     <a href="#" class="nav-link">Designer</a>

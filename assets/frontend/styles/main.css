@@ -1,6 +1,6 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #c2c2c2;
+  background-color: #f4f4f4;
 }
 
 nav .navbar-brand {
@@ -238,5 +238,135 @@ nav .navbar-nav .nav-item .nav-link.active {
 .main-content-login .card-login .section-register a {
   text-decoration: none;
   color: #000;
+}
+
+.form-search {
+  margin-top: 40px;
+}
+
+.form-search .form .category {
+  border-radius: 5px;
+  width: 350px;
+  height: 40px;
+  margin-left: 200px;
+  margin-right: auto;
+  background-color: #f4f4f4;
+  color: #cacaca;
+}
+
+.form-search .form .name {
+  border-radius: 5px;
+  width: 350px;
+  height: 40px;
+  margin-left: 30px;
+  background-color: #f4f4f4;
+  color: #cacaca;
+}
+
+.catalog-section {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  background-color: #f4f4f4;
+  min-height: 1200px;
+}
+
+.catalog-section .card-catalog {
+  margin-top: 50px;
+}
+
+.catalog-section .card-catalog .card-body {
+  width: 335px;
+}
+
+.catalog-section .card-catalog .card-body .catalog-link {
+  text-decoration: none;
+  color: #000;
+}
+
+.catalog-section .card-catalog .card-body .catalog-link .catalog-name {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: auto;
+}
+
+.catalog-section .card-catalog .card-body .designer-name {
+  margin-left: 5px;
+  margin-right: auto;
+}
+
+.breadcrumb-catalog {
+  margin-top: 50px;
+  margin-left: 100px;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
+.breadcrumb-catalog .breadcrumb .breadcrumb-item .breadcrumb-link {
+  text-decoration: none;
+  color: #acacac;
+}
+
+.breadcrumb-catalog .breadcrumb .breadcrumb-item.active {
+  color: #000;
+}
+
+.catalog-detail-section {
+  min-height: 1000px;
+  background-color: #f4f4f4;
+  margin-bottom: 100px;
+}
+
+.catalog-detail-section .catalog-image {
+  margin-top: 70px;
+}
+
+.catalog-detail-section .catalog-image .catalog-image-child {
+  margin-left: 20px;
+}
+
+.catalog-detail-section .catalog-image .catalog-image-child .image-column {
+  margin-top: 30px;
+  margin-left: -20px;
+}
+
+.catalog-detail-section .catalog-heading {
+  margin-top: 85px;
+}
+
+.catalog-detail-section .catalog-heading .catalog-title {
+  font-size: 40px;
+}
+
+.catalog-detail-section .catalog-designer .designer-name {
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: auto;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.catalog-detail-section .catalog-designer .designer {
+  font-weight: lighter;
+  font-size: 14px;
+  color: #ACACAC;
+  margin-left: 10px;
+  margin-top: -20px;
+}
+
+.catalog-detail-section .catalog-designer .btn-call {
+  border-radius: 50px;
+  width: 200px;
+  background-color: #ffca99;
+  color: #000;
+  font-weight: bold;
+}
+
+.catalog-detail-section .description-catalog .description-heading {
+  font-size: 18px;
+}
+
+.catalog-detail-section .description-catalog .description {
+  font-size: 16px;
+  text-align: justify;
 }
 /*# sourceMappingURL=main.css.map */
