@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Bulan Mei 2021 pada 08.41
+-- Waktu pembuatan: 29 Bulan Mei 2021 pada 20.04
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 7.4.16
 
@@ -90,6 +90,19 @@ INSERT INTO `designer` (`id_designer`, `nama_designer`, `email_designer`, `telp_
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `images`
+--
+
+CREATE TABLE `images` (
+  `id_image` int(11) NOT NULL,
+  `id_catalog` int(11) NOT NULL,
+  `nama_image` varchar(128) NOT NULL,
+  `kategori` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user`
 --
 
@@ -136,6 +149,13 @@ ALTER TABLE `designer`
   ADD PRIMARY KEY (`id_designer`);
 
 --
+-- Indeks untuk tabel `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id_image`),
+  ADD UNIQUE KEY `id_catalog` (`id_catalog`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -164,6 +184,12 @@ ALTER TABLE `designer`
   MODIFY `id_designer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT untuk tabel `images`
+--
+ALTER TABLE `images`
+  MODIFY `id_image` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -179,6 +205,12 @@ ALTER TABLE `user`
 ALTER TABLE `catalog`
   ADD CONSTRAINT `catalog_ibfk_1` FOREIGN KEY (`id_designer`) REFERENCES `designer` (`id_designer`),
   ADD CONSTRAINT `catalog_ibfk_2` FOREIGN KEY (`id_category`) REFERENCES `category` (`id_category`);
+
+--
+-- Ketidakleluasaan untuk tabel `images`
+--
+ALTER TABLE `images`
+  ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`id_catalog`) REFERENCES `catalog` (`id_catalog`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
