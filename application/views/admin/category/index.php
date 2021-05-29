@@ -36,8 +36,8 @@
                             <td><?= $item['nama_category']; ?></td>
                             <td class="text center">
 
-                                <a href="<?= base_url('admin/category/edit/'.$item['id_category']) ;?>" class=" btn btn-success rounded btn-sm"><i class="fas fa-pencil-alt" title="view"></i></a>
-                                <a href="" data-toggle="modal" data-target="#deleteModal" class=" btn btn-danger rounded btn-sm"><i class="fas fa-trash-alt" title="view"></i></a>
+                                <a href="<?= base_url('admin/category/edit/'.$item['id_category']) ;?>" class=" btn btn-success rounded btn-sm"><i class="fas fa-pencil-alt" title="edit"></i></a>
+                                <a href="" data-toggle="modal" data-target="#deleteModal" class=" btn btn-danger rounded btn-sm"><i class="fas fa-trash-alt" title="delete"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
