@@ -7,12 +7,20 @@
             </div>
         </section>
 
+        <?php if ($this->session->flashdata('message') == TRUE) : ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <p><?php echo $this->session->flashdata('message'); ?>
+        </div>
+        <?php endif; ?>
+
         <section class="section-mycatalog">
             <div class="container">
                 <div class="card">
                     <div class="card-body">
                         <a href="<?= base_url('mycatalog/add') ?>" class="btn btn-primary">Tambah</a>
-
                         <table class="table table-striped" id="myTable" >
                             <thead>
                                 <tr>

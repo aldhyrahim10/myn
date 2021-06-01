@@ -42,7 +42,7 @@
                                     <div class="form-group">
                                         <label for="">Email Address</label>
                                         <div class="form-input">
-                                            <input class="form-control" value="<?= set_value('email');?>" type="text" name="email" id="email">
+                                            <input type="email" class="form-control" value="<?= set_value('email');?>" type="text" name="email" id="email">
                                             <?= form_error('email', '<small class="text-danger pl-3"></small>') ;?>
                                         </div>
                                     </div>

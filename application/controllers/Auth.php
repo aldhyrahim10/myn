@@ -31,7 +31,8 @@ class Auth extends CI_Controller {
 
                         $data = array(
                             'email' => $user['email'],
-                            'nama' => $user['nama']
+                            'nama' => $user['nama'],
+                            'id' => $user['id']
                         );
     
                         $this->session->set_userdata($data);
@@ -110,7 +111,7 @@ class Auth extends CI_Controller {
 
             $this->db->insert('designer', $data2);
 
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Pendaftaran akun berhasil, silahkan tunggu +- 24 jam untuk pengaktifan akun oleh admin <br> Terima Kasih... </div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Pendaftaran akun berhasil, silahkan tunggu +- 24 jam untuk pengaktifan akun oleh admin <br> Terima Kasih... </div>');
 
             redirect('auth/login');
 

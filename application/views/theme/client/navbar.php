@@ -23,10 +23,10 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?= $user;?></a>
                         <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">My Profile</a></li>
-                        <li><a class="dropdown-item" href="<?= base_url('mycatalog'); ?>">My Catalog</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#m_logout">Logout</a></li>
+                            <li><a class="dropdown-item" href="#">My Profile</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('mycatalog'); ?>">My Catalog</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#m_logout">Logout</a></li>
                         </ul>
                     </li>
                 <?php else: ?>

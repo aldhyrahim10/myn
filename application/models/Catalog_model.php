@@ -29,4 +29,9 @@ class Catalog_model extends CI_Model{
 
         return $query->row_array();
     }
+
+    public function insert($input){
+
+        return $this->db->insert('catalog', $input);
+    }
 }
