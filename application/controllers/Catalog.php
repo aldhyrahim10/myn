@@ -39,16 +39,36 @@ class Catalog extends CI_Controller{
         
         $id = $this->uri->segment(3);
 
+        $review = $this->catalog_model->read_review($id);
+
         $catalog_detail = $this->catalog_model->read_single($id);
 
         $data = array(
             'judul' => 'MYN - Catalog Detail',
             'page' => 'client/catalog/detail',
             'user' => $user,
-            'catalog' => $catalog_detail
+            'catalog' => $catalog_detail,
+            'review' => $review
         );
 
         $this->load->view('theme/client/index', $data);
 
+    }
+
+    public function review(){
+
+        $id_catalog = $this->input->post('id');
+        $nama = $this->input->post('nama');
+        $review = $this->input->post('review');
+
+        $input = array(
+            'id_catalog' => $id_catalog,
+            'nama' => $nama,
+            'review' => $review
+        );
+
+        $this->db->insert('feedback', $input);
+
+        redirect('catalog/detail/'.$id_catalog);
     }
 }

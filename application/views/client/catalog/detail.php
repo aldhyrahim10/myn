@@ -65,6 +65,68 @@
                         </div>
                     </div>
                 </div>
+                <div class="container">
+                <section class="section-designer-heading">
+                    <div class="container">
+                        <div class="text-center">
+                            <h1 class="designer-heading">Review</h1>
+                        </div>
+                    </div>
+                </section>
+                    <div class="row mt-5">
+                        <div class="col-lg-6 mb-5">
+                            <div class="card">
+                                <div class="card-header">
+                                    Daftar Review
+                                </div>
+                                <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nama</th>
+                                            <th>feedback</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                        $i= 1;
+
+                                        foreach($review as $item) :?>
+                                        <tr>
+                                            <td><?= $i++ ;?></td>
+                                            <td><?= $item['nama'] ;?></td>
+                                            <td><?= $item['review'] ;?></td>
+                                        </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-5">
+                            <div class="card">
+                                <div class="card-header">
+                                    Tambah Review
+                                </div>
+                                <div class="card-body">
+                                    <form action="<?= base_url('catalog/review') ;?>" method="post">
+                                        <div class="form-group">
+                                            <label for="">Nama</label>
+                                            <input type="hidden" name="id" id="id" value="<?= $catalog['id_catalog'] ;?>">
+                                            <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama">
+                                        </div>
+                                        <div class="form-group mb-3">
+                                            <label for="">Review</label>
+                                            <textarea class="form-control" name="review" id="review" cols="30" rows="5"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-submit" style="background-color: #ffca19;" >Simpan</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

@@ -44,10 +44,10 @@ class Catalog_model extends CI_Model{
 
     }
 
-    public function read_image($id){
+    public function read_review($id){
 
         $this->db->select('*');
-        $this->db->from('images');
+        $this->db->from('feedback');
         $this->db->where('id_catalog', $id);
 
         $query = $this->db->get();
