@@ -64,4 +64,41 @@ class Catalog_model extends CI_Model{
 
         return $this->db->insert('images', $input);
     }
+
+    public function nama($nama){
+        $this->db->select('*');
+        $this->db->from('catalog');
+        $this->db->join('designer', 'catalog.id_designer=designer.id_designer');
+        $this->db->join('category', 'catalog.id_category=category.id_category');
+        $this->db->where('nama_catalog', $nama);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+
+    public function kategori($kategori){
+        $this->db->select('*');
+        $this->db->from('catalog');
+        $this->db->join('designer', 'catalog.id_designer=designer.id_designer');
+        $this->db->join('category', 'catalog.id_category=category.id_category');
+        $this->db->where('catalog.id_category', $kategori);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+
+    public function kate_nama($kategori, $nama){
+        $this->db->select('*');
+        $this->db->from('catalog');
+        $this->db->join('designer', 'catalog.id_designer=designer.id_designer');
+        $this->db->join('category', 'catalog.id_category=category.id_category');
+        $this->db->where('catalog.id_category', $kategori);
+        $this->db->where('nama_catalog', $nama);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 }

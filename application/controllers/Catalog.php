@@ -14,7 +14,7 @@ class Catalog extends CI_Controller{
             $this->session->unset_userdata('email');
         }
 
-        $this->load->model('catalog_model');
+        $this->load->model(array('catalog_model', 'category_model'));
     }
 
     public function index(){
@@ -23,11 +23,14 @@ class Catalog extends CI_Controller{
 
         $data_catalog = $this->catalog_model->read();
 
+        $data_category = $this->category_model->read();
+
         $data = array(
             'judul' => 'MYN - Catalog',
             'page' => 'client/catalog/index',
             'user' => $user,
-            'catalog' => $data_catalog
+            'catalog' => $data_catalog,
+            'category' => $data_category
         );
 
         $this->load->view('theme/client/index', $data);
@@ -70,5 +73,72 @@ class Catalog extends CI_Controller{
         $this->db->insert('feedback', $input);
 
         redirect('catalog/detail/'.$id_catalog);
+    }
+
+    public function result(){
+
+        $kategori = $this->input->post('category');
+        $nama = $this->input->post('name');
+
+        if($kategori == '' && $nama ==''){
+
+            $this->index();
+
+        } elseif($kategori==''){
+
+            $user = $this->session->userdata('nama');
+
+            $data_catalog = $this->catalog_model->nama($nama);
+
+            $data_category = $this->category_model->read();
+
+            $data = array(
+                'judul' => 'MYN - Hasil Pencarian Catalog',
+                'page' => 'client/catalog/result',
+                'user' => $user,
+                'catalog' => $data_catalog,
+                'category' => $data_category
+            );
+
+            $this->load->view('theme/client/index', $data);
+
+        } elseif($nama ==''){
+
+            $user = $this->session->userdata('nama');
+
+            $data_catalog = $this->catalog_model->kategori($kategori);
+
+            $data_category = $this->category_model->read();
+
+            $data = array(
+                'judul' => 'MYN - Hasil Pencarian Catalog',
+                'page' => 'client/catalog/result',
+                'user' => $user,
+                'catalog' => $data_catalog,
+                'category' => $data_category
+            );
+
+            $this->load->view('theme/client/index', $data);
+
+        } else {
+
+            $user = $this->session->userdata('nama');
+
+            $data_catalog = $this->catalog_model->kate_nama($kategori, $nama);
+
+            $data_category = $this->category_model->read();
+
+            $data = array(
+                'judul' => 'MYN - Hasil Pencarian Catalog',
+                'page' => 'client/catalog/result',
+                'user' => $user,
+                'catalog' => $data_catalog,
+                'category' => $data_category
+            );
+
+            $this->load->view('theme/client/index', $data);
+        }
+
+        
     }
 }

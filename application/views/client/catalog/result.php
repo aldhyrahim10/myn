@@ -1,4 +1,4 @@
-    <main>
+<main>
         <section class="form-search">
             <form action="<?= base_url('catalog/result') ;?>" method="POST">
                 <table class="form">
