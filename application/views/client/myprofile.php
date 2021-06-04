@@ -1,11 +1,11 @@
 <main>
     <?php if ($this->session->flashdata('message') == TRUE) : ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <p><?php echo $this->session->flashdata('message'); ?>
+        <div class="container">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <p><?php echo $this->session->flashdata('message'); ?>
+            </div>
         </div>
+        
     <?php endif; ?>
 
     <section class="section-designer-heading">
@@ -32,7 +32,7 @@
                     </div>
                     <div class="user-phone">
                         <label for="">No. Telpon</label>
-                        <h5><?= $profile['telp_designer'] ;?></h5>
+                        <h5>+<?= $profile['telp_designer'] ;?></h5>
                     </div>
                     <div class="user-address">
                         <label for="">Alamat</label>
@@ -61,7 +61,7 @@
                                     <input readonly type="text" class="form-control" name="email" id="email" placeholder="Email" value="<?= $profile['email_designer'] ;?>">
                                 </div>
                                 <div class="form-group">
-                                    <label for="">No. Telpon</label>
+                                    <label for="">No. Telpon (ex. 62821xxxxxx)</label>
                                     <input type="text" class="form-control" name="telp" id="telp" placeholder="No. Telp" value="<?= $profile['telp_designer'] ;?>">
                                 </div>
                                 <div class="form-group">

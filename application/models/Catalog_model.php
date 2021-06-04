@@ -30,8 +30,38 @@ class Catalog_model extends CI_Model{
         return $query->row_array();
     }
 
+    public function read_user($id){
+        $this->db->select('*');
+        $this->db->from('catalog');
+        // $this->db->join('designer', 'catalog.id_designer=designer.id_designer');
+        $this->db->join('category', 'catalog.id_category=category.id_category');
+        $this->db->where('id_designer', $id);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+
+
+    }
+
+    public function read_image($id){
+
+        $this->db->select('*');
+        $this->db->from('images');
+        $this->db->where('id_catalog', $id);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+
     public function insert($input){
 
         return $this->db->insert('catalog', $input);
+    }
+
+    public function insert_image($input){
+
+        return $this->db->insert('images', $input);
     }
 }

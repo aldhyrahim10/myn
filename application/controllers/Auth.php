@@ -157,15 +157,24 @@ class Auth extends CI_Controller {
 
             $profile = $this->input->post('gambar');
 
-            $data = array(
+            $data1 = array(
                 'nama_designer' => $nama,
                 'telp_designer' => $hp,
                 'alamat_designer' => $alamat,
                 'profile' => $profile
             );
 
+            $data2 = array(
+                'nama' => $nama,
+                'telp_user' => $hp,
+                'avatar_user' => $profile
+            );
+
             $this->db->where('nama_designer', $user);
-            $this->db->update('designer', $data);
+            $this->db->update('designer', $data1);
+
+            $this->db->where('nama', $user);
+            $this->db->update('user', $data2);
 
             $this->session->set_flashdata('message', 'Sukses, Data berhasil diubah');
 

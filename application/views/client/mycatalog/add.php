@@ -10,11 +10,11 @@
                             <h4 class="heading-card">Lengkap data berikut</h4>
                         </div>
                         <div class="card-body">
-                            <form action="<?= base_url('mycatalog/add_submit') ;?>" method="post">
+                            <form action="<?= site_url('mycatalog/add_submit/') ;?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="">Kategori</label>
                                     <div class="form-input">
-                                        <input type="hidden" name="id" id="id">
+                                        <input type="hidden" name="id" value="<?= $id_user ?>">
                                         <select name="category" class="form-control" id="category">
                                             <?php foreach ($category as $item ): ?>
                                                 <option value="<?= $item['id_category'] ;?>"><?= $item['nama_category'];?></option>
@@ -39,21 +39,43 @@
                                 <div class="form-group">
                                     <label for="">Gambar Master</label>
                                     <div class="form-input">
-                                        <input class="form-control" type="file" name="image-master" id="image-master">
-                                        <?= form_error('image-master', '<small class="text-danger pl-3" style="color:red;"></small>') ;?>
+                                        <input class="form-control" type="file" name="userfile" id="image-master">
+                                        <!--response setelah upload-->
+                                        <?php if (!empty($response)) : ?>
+                                            <small class="text-danger pl-3">
+                                                <?= $response; ?>
+                                            </small>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
-                                <!-- <div class="form-group">
-                                    <label for="">Gambar Pendukung</label>
+                                <div class="form-group">
+                                    <label for="">Gambar Pendukung 1</label>
                                     <div class="form-input">
-                                        <input class="form-control" type="file" name="image-support1" id="image-support1">
-                                        <?= form_error('image-support1', '<small class="text-danger pl-3" style="color:red;"></small>') ;?>
-                                        <input class="form-control" type="file" name="image-support2" id="image-support2">
-                                        <?= form_error('image-support2', '<small class="text-danger pl-3" style="color:red;"></small>') ;?>
-                                        <input class="form-control" type="file" name="image-support3" id="image-support3">
-                                        <?= form_error('image-support2', '<small class="text-danger pl-3" style="color:red;"></small>') ;?>
+                                        <input class="form-control" type="file" name="support1" id="support1">
+                                        <!--response setelah upload-->
+                                        <?php if (!empty($response)) : ?>
+                                            <small class="text-danger pl-3">
+                                                <?= $response; ?>
+                                            </small>
+                                        <?php endif; ?>
+                                        <label for="">Gambar Pendukung 2</label>
+                                        <input class="form-control" type="file" name="support2" id="support2">
+                                        <!--response setelah upload-->
+                                        <?php if (!empty($response)) : ?>
+                                            <small class="text-danger pl-3">
+                                                <?= $response; ?>
+                                            </small>
+                                        <?php endif; ?>
+                                        <label for="">Gambar Pendukung 3</label>
+                                        <input class="form-control" type="file" name="support3" id="support3">
+                                        <!--response setelah upload-->
+                                        <?php if (!empty($response)) : ?>
+                                            <small class="text-danger pl-3">
+                                                <?= $response; ?>
+                                            </small>
+                                        <?php endif; ?>
                                     </div>
-                                </div> -->
+                                </div>
                                 <div class="text-center">
                                     <input type="submit" name="submit" value="Simpan" class="btn btn-form-catalog">
                                 </div>
