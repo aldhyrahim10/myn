@@ -25,5 +25,17 @@ class Designer_model extends CI_Model {
         return $query->row_array();
     }
 
+    public function read_designer(){
+
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('role', 2);
+        $this->db->where('status', 1);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+
 
 }

@@ -418,4 +418,78 @@ nav .navbar-nav .nav-item .nav-link.active {
   background-color: #fff;
   color: #000;
 }
+
+.section-designer-heading {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.section-designer-heading .designer-heading {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.section-designer-heading .designer-desc {
+  font-size: 18px;
+}
+
+.section-designer-list {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.section-designer-list .designer-image img {
+  margin-left: 50px;
+  margin-right: auto;
+}
+
+.section-designer-list .designer-name {
+  margin-top: 20px;
+}
+
+.section-designer-list .designer-name h4 {
+  font-size: 18px;
+}
+
+.section-designer-list .designer-name p {
+  font-size: 14px;
+}
+
+.section-designer-list .designer-phone {
+  margin-bottom: 10px;
+}
+
+.section-designer-list .designer-phone .btn-designer-phone {
+  width: 220px;
+  background-color: #ffca99;
+  color: #000;
+}
+
+.section-designer-list .designer-detail {
+  margin-bottom: 10px;
+}
+
+.section-designer-list .designer-detail .btn-designer-detail {
+  width: 220px;
+  background-color: #fff;
+  color: #000;
+}
+
+.section-profile {
+  margin-bottom: 50px;
+}
+
+.section-settings-profile {
+  margin-bottom: 100px;
+}
+
+.section-settings-profile .card .card-body .form-group {
+  margin-bottom: 10px;
+}
+
+.section-settings-profile .card .card-body .btn-submit {
+  margin-top: 10px;
+  background-color: #ffca99;
+  color: #000;
+}
 /*# sourceMappingURL=main.css.map */

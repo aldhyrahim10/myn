@@ -96,6 +96,7 @@ class Auth extends CI_Controller {
             $data1 = array(
                 'nama' => $nama,
                 'email' => $email,
+                'telp_user' => $hp,
                 'password' => $password_encrypt,
                 'role' => 2,
                 'status' => 0
@@ -124,5 +125,86 @@ class Auth extends CI_Controller {
         $this->session->unset_userdata('email');
 
         redirect('login');
+    }
+
+    public function myprofile(){
+
+        $user = $this->session->userdata('nama');
+
+        $data_profile = $this->db->get_where('designer', ['nama_designer' => $user])->row_array();
+
+        $data = array(
+            'judul' => 'MYN - MY Profile',
+            'page' => 'client/myprofile',
+            'user' => $user,
+            'profile' => $data_profile
+        );
+
+        $this->load->view('theme/client/index', $data);
+    }
+
+    public function edit(){
+
+        $user = $this->session->userdata('nama');
+
+        $nama = $this->input->post('name');
+        $hp = $this->input->post('telp');
+        $alamat = $this->input->post('alamat');
+
+        if($this->input->post('foto') == '' ){
+
+            $user = $this->session->userdata('nama');
+
+            $profile = $this->input->post('gambar');
+
+            $data = array(
+                'nama_designer' => $nama,
+                'telp_designer' => $hp,
+                'alamat_designer' => $alamat,
+                'profile' => $profile
+            );
+
+            $this->db->where('nama_designer', $user);
+            $this->db->update('designer', $data);
+
+            $this->session->set_flashdata('message', 'Sukses, Data berhasil diubah');
+
+            redirect('auth/myprofile');
+        } else {
+
+
+        }
+    }
+
+    public function changepassword(){
+        
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[8]|matches[password2]');
+        $this->form_validation->set_rules('password2', 'Confirm Password', 'required|trim|min_length[8]|matches[password]');
+
+        if($this->form_validation->run() == false ){
+
+            
+            $this->myprofile();
+
+        } else {
+
+            $user = $this->session->userdata('nama');
+
+            $password = $this->input->post('password');
+
+            $password_new = md5($password);
+            
+            $data = array(
+                'password' => $password_new
+            );
+
+            $this->db->where('nama', $user);
+            $this->db->update('user', $data);
+
+            $this->session->set_flashdata('message', 'Sukses, Password berhasil diubah');
+
+            redirect('auth/myprofile');
+        }
+        
     }
 }

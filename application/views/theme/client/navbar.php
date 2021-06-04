@@ -16,14 +16,14 @@
                     <a href="<?= base_url('catalog') ;?>" class="nav-link">Catalog</a>
                 </li>
                 <li class="nav-item mx-md-2">
-                    <a href="#" class="nav-link">Designer</a>
+                    <a href="<?= base_url('designer') ;?>" class="nav-link">Designer</a>
                 </li>
 
                 <?php if( $this->session->userdata('nama') == true) :?>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><?= $user;?></a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">My Profile</a></li>
+                            <li><a class="dropdown-item" href="<?= base_url('auth/myprofile') ;?>">My Profile</a></li>
                             <li><a class="dropdown-item" href="<?= base_url('mycatalog'); ?>">My Catalog</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target="#m_logout">Logout</a></li>

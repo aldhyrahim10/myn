@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Catalog extends CI_Controller{
+class Designer extends CI_Controller {
 
     public function __construct(){
 
@@ -13,32 +13,23 @@ class Catalog extends CI_Controller{
             $this->session->unset_userdata('nama');
             $this->session->unset_userdata('email');
         }
+
+        $this->load->model('designer_model');
     }
 
     public function index(){
 
         $user = $this->session->userdata('nama');
 
+        $designer = $this->designer_model->read_designer();
+
         $data = array(
-            'judul' => 'MYN - Catalog',
-            'page' => 'client/catalog/index',
-            'user' => $user
+            'judul' => 'MYN - Designer',
+            'page' => 'client/designer/index',
+            'user' => $user,
+            'designer' => $designer
         );
 
         $this->load->view('theme/client/index', $data);
-    }
-
-    public function detail(){
-
-        $user = $this->session->userdata('nama');
-
-        $data = array(
-            'judul' => 'MYN - Catalog Detail',
-            'page' => 'client/catalog/detail',
-            'user' => $user
-        );
-
-        $this->load->view('theme/client/index', $data);
-
     }
 }

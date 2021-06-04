@@ -486,4 +486,89 @@ nav{
         }
     }
 }
+
+.section-designer-heading{
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    .designer-heading{
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    .designer-desc{
+
+        font-size: 18px;
+    }
+}
+
+.section-designer-list{
+    margin-top: 100px;
+    margin-bottom: 100px;
     
+    .designer-image{
+
+        img{
+            margin-left: 50px;
+            margin-right: auto;
+        }
+    }
+
+    .designer-name{
+        margin-top: 20px;
+
+        h4{
+            font-size: 18px;
+        }
+
+        p{
+            font-size: 14px;
+        }
+        
+    }
+
+    .designer-phone{
+        margin-bottom: 10px;
+        .btn-designer-phone{
+            width: 220px;
+            background-color: #ffca99;
+            color: #000;
+            
+        }
+    }
+
+    .designer-detail{
+        margin-bottom: 10px;
+        .btn-designer-detail{
+            width: 220px;
+            background-color: #fff;
+            color: #000;
+            
+        }
+    }
+}
+
+.section-profile{
+    margin-bottom: 50px;
+}
+
+.section-settings-profile{
+    margin-bottom: 100px;
+    
+    .card{
+
+        .card-body{
+
+            .form-group{
+                margin-bottom: 10px;
+            }
+
+            .btn-submit{
+                margin-top: 10px;
+                background-color: #ffca99;
+                color: #000;
+
+            }
+        }
+    }
+}
