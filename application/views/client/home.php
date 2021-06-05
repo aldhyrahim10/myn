@@ -31,11 +31,11 @@
                 </h2>
             </div>
 
-            <div class="menu-list text-center">
+            <!-- <div class="menu-list text-center">
                 <a href="#" class="btn btn-menu active">Kitchen Set</a>
                 <a href="#" class="btn btn-menu">Bedroom</a>
                 <a href="#" class="btn btn-menu">Living Room</a>
-            </div>
+            </div> -->
         </section>
 
         <section class="image-section text-center">
