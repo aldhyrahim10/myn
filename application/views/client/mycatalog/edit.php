@@ -1,4 +1,4 @@
-<main>
+    <main>
         <section class="section-addcatalog">
             <div class="container">
                 <div class="heading-addcatalog text-center">
