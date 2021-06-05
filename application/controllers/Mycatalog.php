@@ -264,6 +264,8 @@ class Mycatalog extends CI_Controller{
 
     public function edit(){
 
+        $this->edit_submit();
+
         $id = $this->uri->segment(3);
 
         $data_catalog = $this->catalog_model->read_single($id);
@@ -306,10 +308,11 @@ class Mycatalog extends CI_Controller{
 
     public function edit_submit(){
 
-        if ($this->input->post('submit') == 'Simpan'){
+        if ($this->input->post('submit') == 'Simpan') {
 
             //aturan validasi input login
             $this->form_validation->set_rules('category', 'Category', 'required');
+            $this->form_validation->set_rules('id', 'id', 'required');
             $this->form_validation->set_rules('name', 'Judul Catalog', 'required|is_unique[catalog.nama_catalog]');
             $this->form_validation->set_rules('description', 'Deskripsi Catalog', 'required');
 
@@ -322,17 +325,14 @@ class Mycatalog extends CI_Controller{
 
             $this->load->library('upload', $config);
 
-            if ($this->form_validation->run() == TRUE){
-
+            if ($this->form_validation->run() == TRUE) {
+                
+                //menangkap data input dari view
                 $category   = $this->input->post('category');
                 $name       = $this->input->post('name');
                 $description= $this->input->post('description');
-                $master = $this->input->post('master');
-                $sup1 = $this->input->post('sup1');
-                $sup2 = $this->input->post('sup2');
-                $sup3 = $this->input->post('sup3');
 
-                $id_user = $this->session->userdata('id');
+                $id_user       = $this->session->userdata('id');
                 
                 $id = $this->uri->segment(3);
 
@@ -342,197 +342,14 @@ class Mycatalog extends CI_Controller{
                     'id_designer'       => $id_user,
                     'nama_catalog'      => $name,
                     'deskripsi_catalog' => $description,
-                    'image_master' => $master,
-                    'img_supp1' => $sup1,
-                    'img_supp2' => $sup2,
-                    'img_supp3' => $sup3
                 );
+        
+                $this->catalog_model->update($id, $input);
 
-                $this->db->where('id_catalog', $id);
-                $this->db->update('catalog', $input);
-            } else {
-
-                $this->edit();
+                redirect('mycatalog');
+                
             }
 
-            // if($this->input->post('userfile')){
-                
-            //     if (!$this->upload->do_upload('userfile')) {
-        
-            //         $id_user       = $this->session->userdata('id');
-            //         $user          = $this->session->userdata('nama');
-            //         $data_category = $this->category_model->read();
-            
-            //         //respon alasan kenapa gagal upload
-            //         $response = $this->upload->display_errors();
-                    
-            //         $data = array(
-            //             'judul' => 'MYN - Tambah Catalog',
-            //             'page' => 'client/mycatalog/add',
-            //             'response'   => $response,
-            //             'id_user'=> $id_user,
-            //             'user' => $user,
-            //             'category' => $data_category,
-            //         );
-            
-            //         $this->load->view('theme/client/index', $data);
-            
-            //     //jika berhasil upload
-            //     } else {
-            //         $this->upload->do_upload('userfile');
-            //         $upload_data = $this->upload->data('file_name');
-                    
-            //         $id = $this->uri->segment(3);
-            //         //mengirim data ke model
-            //         $input = array(
-            //             //format : nama field/kolom table => data input dari view
-            //             'image_master'      => $upload_data
-            //         );
-    
-            //         $this->db->where('id_catalog', $id);
-            //         $this->db->update('catalog', $input);
-            
-            //         //memanggil function insert pada kota model
-            //         //function insert berfungsi menyimpan/create data ke table buku di database
-    
-            //         //mengembalikan halaman ke function read
-            //     }
-            // }
-
-            // if($this->input->post('support1')){
-
-            //     if (!$this->upload->do_upload('support1')) {
-    
-            //         $id_user       = $this->session->userdata('id');
-            //         $user          = $this->session->userdata('nama');
-            //         $data_category = $this->category_model->read();
-            
-            //         //respon alasan kenapa gagal upload
-            //         $response = $this->upload->display_errors();
-                    
-            //         $data = array(
-            //             'judul' => 'MYN - Tambah Catalog',
-            //             'page' => 'client/mycatalog/add',
-            //             'response'   => $response,
-            //             'id_user'=> $id_user,
-            //             'user' => $user,
-            //             'category' => $data_category,
-            //         );
-            
-            //         $this->load->view('theme/client/index', $data);
-            
-            //     //jika berhasil upload
-            //     } else {
-            //         $this->upload->do_upload('support1');
-            //         $upload_data = $this->upload->data('file_name');
-                    
-            //         $id = $this->uri->segment(3);
-            //         //mengirim data ke model
-            //         $input = array(
-            //             //format : nama field/kolom table => data input dari view
-            //             'img_supp1'      => $upload_data
-            //         );
-    
-            //         $this->db->where('id_catalog', $id);
-            //         $this->db->update('catalog', $input);
-            
-            //         //memanggil function insert pada kota model
-            //         //function insert berfungsi menyimpan/create data ke table buku di database
-    
-            //         //mengembalikan halaman ke function read
-            //     }
-
-            // }
-
-            // if($this->input->post('support2')){
-
-            //     if (!$this->upload->do_upload('support2')) {
-    
-            //         $id_user       = $this->session->userdata('id');
-            //         $user          = $this->session->userdata('nama');
-            //         $data_category = $this->category_model->read();
-            
-            //         //respon alasan kenapa gagal upload
-            //         $response = $this->upload->display_errors();
-                    
-            //         $data = array(
-            //             'judul' => 'MYN - Tambah Catalog',
-            //             'page' => 'client/mycatalog/add',
-            //             'response'   => $response,
-            //             'id_user'=> $id_user,
-            //             'user' => $user,
-            //             'category' => $data_category,
-            //         );
-            
-            //         $this->load->view('theme/client/index', $data);
-            
-            //     //jika berhasil upload
-            //     } else {
-            //         $this->upload->do_upload('support2');
-            //         $upload_data = $this->upload->data('file_name');
-                    
-            //         $id = $this->uri->segment(3);
-            //         //mengirim data ke model
-            //         $input = array(
-            //             //format : nama field/kolom table => data input dari view
-            //             'img_supp2'      => $upload_data
-            //         );
-    
-            //         $this->db->where('id_catalog', $id);
-            //         $this->db->update('catalog', $input);
-            
-            //         //memanggil function insert pada kota model
-            //         //function insert berfungsi menyimpan/create data ke table buku di database
-    
-            //         //mengembalikan halaman ke function read
-            //     }
-            // }
-
-            // if($this->input->post('support3')){
-
-            //     if (!$this->upload->do_upload('support3')) {
-    
-            //         $id_user       = $this->session->userdata('id');
-            //         $user          = $this->session->userdata('nama');
-            //         $data_category = $this->category_model->read();
-            
-            //         //respon alasan kenapa gagal upload
-            //         $response = $this->upload->display_errors();
-                    
-            //         $data = array(
-            //             'judul' => 'MYN - Tambah Catalog',
-            //             'page' => 'client/mycatalog/add',
-            //             'response'   => $response,
-            //             'id_user'=> $id_user,
-            //             'user' => $user,
-            //             'category' => $data_category,
-            //         );
-            
-            //         $this->load->view('theme/client/index', $data);
-            
-            //     //jika berhasil upload
-            //     } else {
-            //         $this->upload->do_upload('support3');
-            //         $upload_data = $this->upload->data('file_name');
-                    
-            //         $id = $this->uri->segment(3);
-            //         //mengirim data ke model
-            //         $input = array(
-            //             //format : nama field/kolom table => data input dari view
-            //             'img_supp3'      => $upload_data
-            //         );
-    
-            //         $this->db->where('id_catalog', $id);
-            //         $this->db->update('catalog', $input);
-            
-            //         //memanggil function insert pada kota model
-            //         //function insert berfungsi menyimpan/create data ke table buku di database
-    
-            //         //mengembalikan halaman ke function read
-            //     }
-
-            // }
-            redirect('mycatalog');
         }
 
     }
