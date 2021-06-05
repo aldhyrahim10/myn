@@ -10,7 +10,7 @@
                             <h4 class="heading-card">Lengkap data berikut</h4>
                         </div>
                         <div class="card-body">
-                            <form action="<?= site_url('mycatalog/edit_submit/') ;?>" method="post" enctype="multipart/form-data">
+                            <form action="<?= site_url('mycatalog/edit_submit/'.$catalog['id_catalog'] ) ;?>" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="">Kategori</label>
                                     <div class="form-input">
@@ -29,7 +29,7 @@
                                     <label for="">Judul Catalog</label>
                                     <div class="form-input">
                                         <input type="text" value="<?= $catalog['nama_catalog'] ;?>" name="name" id="name" class="form-control" >
-                                        <?= form_error('name', '<small class="text-danger pl-3" style="color:red;"></small>') ;?>
+                                        <?= form_error('name', '<small class="text-danger pl-3" style="color:red;"></small  >') ;?>
                                     </div>
                                 </div>
                                 <div class="form-group">
