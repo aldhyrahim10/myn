@@ -14,7 +14,7 @@
                 your home with the latest in design trends
             </p>
 
-            <a href="#" class="btn btn-header px-4 mt-4">
+            <a href="<?= base_url('catalog') ;?>" class="btn btn-header px-4 mt-4">
                 Explore Now
             </a>
         </div>
@@ -56,7 +56,7 @@
                 </div>
             </div>
 
-            <a href="#" class="btn btn-load-more">
+            <a href="<?= base_url('catalog'); ?>" class="btn btn-load-more">
                 Load More
             </a>       
         </section>
