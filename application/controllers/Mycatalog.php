@@ -341,193 +341,176 @@ class Mycatalog extends CI_Controller{
                     'id_category'       => $category,
                     'id_designer'       => $id_user,
                     'nama_catalog'      => $name,
-                    'deskripsi_catalog' => $description,
-                    'image_master' => $master,
-                    'img_supp1' => $sup1,
-                    'img_supp2' => $sup2,
-                    'img_supp3' => $sup3
+                    'deskripsi_catalog' => $description
                 );
 
                 $this->db->where('id_catalog', $id);
                 $this->db->update('catalog', $input);
             }
 
-            if($this->input->post('userfile')){
-                
-                if (!$this->upload->do_upload('userfile')) {
+            if (!$this->upload->do_upload('userfile')) {
         
-                    $id_user       = $this->session->userdata('id');
-                    $user          = $this->session->userdata('nama');
-                    $data_category = $this->category_model->read();
-            
-                    //respon alasan kenapa gagal upload
-                    $response = $this->upload->display_errors();
-                    
-                    $data = array(
-                        'judul' => 'MYN - Tambah Catalog',
-                        'page' => 'client/mycatalog/add',
-                        'response'   => $response,
-                        'id_user'=> $id_user,
-                        'user' => $user,
-                        'category' => $data_category,
-                    );
-            
-                    $this->load->view('theme/client/index', $data);
-            
-                //jika berhasil upload
-                } else {
-                    $this->upload->do_upload('userfile');
-                    $upload_data = $this->upload->data('file_name');
-                    
-                    $id = $this->uri->segment(3);
-                    //mengirim data ke model
-                    $input = array(
-                        //format : nama field/kolom table => data input dari view
-                        'image_master'      => $upload_data
-                    );
-    
-                    $this->db->where('id_catalog', $id);
-                    $this->db->update('catalog', $input);
-            
-                    //memanggil function insert pada kota model
-                    //function insert berfungsi menyimpan/create data ke table buku di database
-    
-                    //mengembalikan halaman ke function read
-                }
+                $id_user       = $this->session->userdata('id');
+                $user          = $this->session->userdata('nama');
+                $data_category = $this->category_model->read();
+        
+                //respon alasan kenapa gagal upload
+                $response = $this->upload->display_errors();
+                
+                $data = array(
+                    'judul' => 'MYN - Tambah Catalog',
+                    'page' => 'client/mycatalog/add',
+                    'response'   => $response,
+                    'id_user'=> $id_user,
+                    'user' => $user,
+                    'category' => $data_category,
+                );
+        
+                $this->load->view('theme/client/index', $data);
+        
+            //jika berhasil upload
+            } else {
+                $this->upload->do_upload('userfile');
+                $upload_data = $this->upload->data('file_name');
+
+                $id = $this->uri->segment(3);
+                
+                //mengirim data ke model
+                $input = array(
+                    //format : nama field/kolom table => data input dari view
+                    'image_master'      => $upload_data
+                );
+
+                $this->db->where('id_catalog', $id);
+                $this->db->update('catalog', $input);
+        
+                //memanggil function insert pada kota model
+                //function insert berfungsi menyimpan/create data ke table buku di database
+
+                //mengembalikan halaman ke function read
             }
 
-            if($this->input->post('support1')){
+            if (!$this->upload->do_upload('support1')) {
+    
+                $id_user       = $this->session->userdata('id');
+                $user          = $this->session->userdata('nama');
+                $data_category = $this->category_model->read();
+        
+                //respon alasan kenapa gagal upload
+                $response = $this->upload->display_errors();
+                
+                $data = array(
+                    'judul' => 'MYN - Tambah Catalog',
+                    'page' => 'client/mycatalog/add',
+                    'response'   => $response,
+                    'id_user'=> $id_user,
+                    'user' => $user,
+                    'category' => $data_category,
+                );
+        
+                $this->load->view('theme/client/index', $data);
+        
+            //jika berhasil upload
+            } else {
+                $this->upload->do_upload('support1');
+                $upload_data = $this->upload->data('file_name');
+                
+                $id = $this->uri->segment(3);
+                //mengirim data ke model
+                $input = array(
+                    //format : nama field/kolom table => data input dari view
+                    'img_supp1'      => $upload_data
+                );
 
-                if (!$this->upload->do_upload('support1')) {
-    
-                    $id_user       = $this->session->userdata('id');
-                    $user          = $this->session->userdata('nama');
-                    $data_category = $this->category_model->read();
-            
-                    //respon alasan kenapa gagal upload
-                    $response = $this->upload->display_errors();
-                    
-                    $data = array(
-                        'judul' => 'MYN - Tambah Catalog',
-                        'page' => 'client/mycatalog/add',
-                        'response'   => $response,
-                        'id_user'=> $id_user,
-                        'user' => $user,
-                        'category' => $data_category,
-                    );
-            
-                    $this->load->view('theme/client/index', $data);
-            
-                //jika berhasil upload
-                } else {
-                    $this->upload->do_upload('support1');
-                    $upload_data = $this->upload->data('file_name');
-                    
-                    $id = $this->uri->segment(3);
-                    //mengirim data ke model
-                    $input = array(
-                        //format : nama field/kolom table => data input dari view
-                        'img_supp1'      => $upload_data
-                    );
-    
-                    $this->db->where('id_catalog', $id);
-                    $this->db->update('catalog', $input);
-            
-                    //memanggil function insert pada kota model
-                    //function insert berfungsi menyimpan/create data ke table buku di database
-    
-                    //mengembalikan halaman ke function read
-                }
+                $this->db->where('id_catalog', $id);
+                $this->db->update('catalog', $input);
+        
+                //memanggil function insert pada kota model
+                //function insert berfungsi menyimpan/create data ke table buku di database
 
+                //mengembalikan halaman ke function read
             }
 
-            if($this->input->post('support2')){
+            if (!$this->upload->do_upload('support2')) {
+    
+                $id_user       = $this->session->userdata('id');
+                $user          = $this->session->userdata('nama');
+                $data_category = $this->category_model->read();
+        
+                //respon alasan kenapa gagal upload
+                $response = $this->upload->display_errors();
+                
+                $data = array(
+                    'judul' => 'MYN - Tambah Catalog',
+                    'page' => 'client/mycatalog/add',
+                    'response'   => $response,
+                    'id_user'=> $id_user,
+                    'user' => $user,
+                    'category' => $data_category,
+                );
+        
+                $this->load->view('theme/client/index', $data);
+        
+            //jika berhasil upload
+            } else {
+                $this->upload->do_upload('support2');
+                $upload_data = $this->upload->data('file_name');
+                
+                $id = $this->uri->segment(3);
+                //mengirim data ke model
+                $input = array(
+                    //format : nama field/kolom table => data input dari view
+                    'img_supp2'      => $upload_data
+                );
 
-                if (!$this->upload->do_upload('support2')) {
-    
-                    $id_user       = $this->session->userdata('id');
-                    $user          = $this->session->userdata('nama');
-                    $data_category = $this->category_model->read();
-            
-                    //respon alasan kenapa gagal upload
-                    $response = $this->upload->display_errors();
-                    
-                    $data = array(
-                        'judul' => 'MYN - Tambah Catalog',
-                        'page' => 'client/mycatalog/add',
-                        'response'   => $response,
-                        'id_user'=> $id_user,
-                        'user' => $user,
-                        'category' => $data_category,
-                    );
-            
-                    $this->load->view('theme/client/index', $data);
-            
-                //jika berhasil upload
-                } else {
-                    $this->upload->do_upload('support2');
-                    $upload_data = $this->upload->data('file_name');
-                    
-                    $id = $this->uri->segment(3);
-                    //mengirim data ke model
-                    $input = array(
-                        //format : nama field/kolom table => data input dari view
-                        'img_supp2'      => $upload_data
-                    );
-    
-                    $this->db->where('id_catalog', $id);
-                    $this->db->update('catalog', $input);
-            
-                    //memanggil function insert pada kota model
-                    //function insert berfungsi menyimpan/create data ke table buku di database
-    
-                    //mengembalikan halaman ke function read
-                }
+                $this->db->where('id_catalog', $id);
+                $this->db->update('catalog', $input);
+        
+                //memanggil function insert pada kota model
+                //function insert berfungsi menyimpan/create data ke table buku di database
+
+                //mengembalikan halaman ke function read
             }
 
-            if($this->input->post('support3')){
+            if (!$this->upload->do_upload('support3')) {
+    
+                $id_user       = $this->session->userdata('id');
+                $user          = $this->session->userdata('nama');
+                $data_category = $this->category_model->read();
+        
+                //respon alasan kenapa gagal upload
+                $response = $this->upload->display_errors();
+                
+                $data = array(
+                    'judul' => 'MYN - Tambah Catalog',
+                    'page' => 'client/mycatalog/add',
+                    'response'   => $response,
+                    'id_user'=> $id_user,
+                    'user' => $user,
+                    'category' => $data_category,
+                );
+        
+                $this->load->view('theme/client/index', $data);
+        
+            //jika berhasil upload
+            } else {
+                $this->upload->do_upload('support3');
+                $upload_data = $this->upload->data('file_name');
+                
+                $id = $this->uri->segment(3);
+                //mengirim data ke model
+                $input = array(
+                    //format : nama field/kolom table => data input dari view
+                    'img_supp3'      => $upload_data
+                );
 
-                if (!$this->upload->do_upload('support3')) {
-    
-                    $id_user       = $this->session->userdata('id');
-                    $user          = $this->session->userdata('nama');
-                    $data_category = $this->category_model->read();
-            
-                    //respon alasan kenapa gagal upload
-                    $response = $this->upload->display_errors();
-                    
-                    $data = array(
-                        'judul' => 'MYN - Tambah Catalog',
-                        'page' => 'client/mycatalog/add',
-                        'response'   => $response,
-                        'id_user'=> $id_user,
-                        'user' => $user,
-                        'category' => $data_category,
-                    );
-            
-                    $this->load->view('theme/client/index', $data);
-            
-                //jika berhasil upload
-                } else {
-                    $this->upload->do_upload('support3');
-                    $upload_data = $this->upload->data('file_name');
-                    
-                    $id = $this->uri->segment(3);
-                    //mengirim data ke model
-                    $input = array(
-                        //format : nama field/kolom table => data input dari view
-                        'img_supp3'      => $upload_data
-                    );
-    
-                    $this->db->where('id_catalog', $id);
-                    $this->db->update('catalog', $input);
-            
-                    //memanggil function insert pada kota model
-                    //function insert berfungsi menyimpan/create data ke table buku di database
-    
-                    //mengembalikan halaman ke function read
-                }
+                $this->db->where('id_catalog', $id);
+                $this->db->update('catalog', $input);
+        
+                //memanggil function insert pada kota model
+                //function insert berfungsi menyimpan/create data ke table buku di database
 
+                //mengembalikan halaman ke function read
             }
 
             $this->session->set_userdata('message', 'Sukses, data berhasil diubah');
