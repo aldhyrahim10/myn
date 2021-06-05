@@ -22,9 +22,6 @@
                     <div class="designer-phone">
                         <a href="https://api.whatsapp.com/send?phone=<?= $item['telp_user'];?>"  class="btn btn-designer-phone" target="_blank">Hubungi</a>
                     </div>
-                    <div class="designer-detail">
-                        <a href="<?= base_url('designer/detail/'. $item['id']) ?>" class="btn btn-designer-detail" >Lihat Detail</a>
-                    </div>
                 </div>
 
                 <?php endforeach; ?>
