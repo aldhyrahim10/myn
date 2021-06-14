@@ -97,6 +97,7 @@ class Auth extends CI_Controller {
                 'nama' => $nama,
                 'email' => $email,
                 'telp_user' => $hp,
+                'avatar_user' => 'default.jpg',
                 'password' => $password_encrypt,
                 'role' => 2,
                 'status' => 0
@@ -105,7 +106,8 @@ class Auth extends CI_Controller {
             $data2 = array(
                 'nama_designer' => $nama,
                 'telp_designer' => $hp,
-                'alamat_designer' => $alamat
+                'alamat_designer' => $alamat,
+                'profile' => 'default.jpg'
             ); 
             
             $this->db->insert('user', $data1);
@@ -145,44 +147,93 @@ class Auth extends CI_Controller {
 
     public function edit(){
 
+        $config = array (
+            'upload_path'    => './files/',
+            'allowed_types'  => 'jpeg|jpg|png',
+            'max_size'       => 5000
+        );
+
+        $this->load->library('upload', $config);
+
         $user = $this->session->userdata('nama');
+        $user_email = $this->session->userdata('email');
 
         $nama = $this->input->post('name');
         $hp = $this->input->post('telp');
         $alamat = $this->input->post('alamat');
 
-        if($this->input->post('foto') == '' ){
+        $input1 = array (
+            'nama_designer' => $nama,
+            'telp_designer' => $hp,
+            'alamat_designer' => $alamat
+        );
 
+        $input2 = array(
+            'nama' => $nama,
+            'telp_user' => $hp
+        );
+
+        $this->db->where('email_designer', $user_email);
+        $this->db->update('designer', $input1);
+
+        $this->db->where('email', $user_email);
+        $this->db->update('user', $input2);
+
+        if (!$this->upload->do_upload('foto')) {
+        
             $user = $this->session->userdata('nama');
 
-            $profile = $this->input->post('gambar');
-
-            $data1 = array(
-                'nama_designer' => $nama,
-                'telp_designer' => $hp,
-                'alamat_designer' => $alamat,
-                'profile' => $profile
+            $data_profile = $this->db->get_where('designer', ['nama_designer' => $user])->row_array();
+    
+            $data = array(
+                'judul' => 'MYN - MY Profile',
+                'page' => 'client/myprofile',
+                'user' => $user,
+                'profile' => $data_profile
             );
-
-            $data2 = array(
-                'nama' => $nama,
-                'telp_user' => $hp,
-                'avatar_user' => $profile
-            );
-
-            $this->db->where('nama_designer', $user);
-            $this->db->update('designer', $data1);
-
-            $this->db->where('nama', $user);
-            $this->db->update('user', $data2);
-
-            $this->session->set_flashdata('message', 'Sukses, Data berhasil diubah');
-
-            redirect('auth/myprofile');
+    
+            $this->load->view('theme/client/index', $data);
+    
+        //jika berhasil upload
         } else {
 
+            $this->upload->do_upload('foto');
+            $upload_data = $this->upload->data('file_name');
 
+            $user_email       = $this->session->userdata('email');
+            
+            //mengirim data ke model
+            $input1 = array(
+                //format : nama field/kolom table => data input dari view
+                'profile' => $upload_data
+            );
+
+            //mengirim data ke model
+            $input2 = array(
+                //format : nama field/kolom table => data input dari view
+                'avatar_user' => $upload_data
+            );
+
+            $this->db->where('email_designer', $user_email);
+            $this->db->update('designer', $input1);
+
+            $this->db->where('email', $user_email);
+            $this->db->update('user', $input2);
+
+            $this->session->set_flashdata('message', 'Sukses Data Berhasil Diubah');
+            
+            
+            redirect('myprofile');
+    
+            //memanggil function insert pada kota model
+            //function insert berfungsi menyimpan/create data ke table buku di database
+
+            //mengembalikan halaman ke function read
         }
+
+
+
+       
     }
 
     public function changepassword(){

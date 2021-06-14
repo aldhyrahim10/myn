@@ -33,9 +33,9 @@ class Catalog_model extends CI_Model{
     public function read_user($id){
         $this->db->select('*');
         $this->db->from('catalog');
-        // $this->db->join('designer', 'catalog.id_designer=designer.id_designer');
+        $this->db->join('designer', 'catalog.id_designer=designer.id_designer');
         $this->db->join('category', 'catalog.id_category=category.id_category');
-        $this->db->where('id_designer', $id);
+        $this->db->where('catalog.id_designer', $id);
 
         $query = $this->db->get();
 

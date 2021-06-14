@@ -9,14 +9,24 @@
         </div>
         <div class="collapse navbar-collapse" id="navb">
             <ul class="navbar-nav ml-auto mr-">
+                <?php
+                    $i = $this->uri->segment(1);
+                ?>
                 <li class="nav-item mx-md-2">
-                    <a href="<?= base_url('home') ;?>" class="nav-link">Home</a>
+                    <a href="<?= base_url('home') ;?>" class="nav-link 
+                    <?php if($i == '' || $i == 'home'){
+                        echo "active";
+                        } ; ?>">Home</a>
                 </li>
                 <li class="nav-item mx-md-2">
-                    <a href="<?= base_url('catalog') ;?>" class="nav-link">Catalog</a>
+                    <a href="<?= base_url('catalog') ;?>" class="nav-link <?php if($i == 'catalog'){
+                        echo "active";
+                        } ; ?>">Catalog</a>
                 </li>
                 <li class="nav-item mx-md-2">
-                    <a href="<?= base_url('designer') ;?>" class="nav-link">Designer</a>
+                    <a href="<?= base_url('designer') ;?>" class="nav-link  <?php if($i == 'designer'){
+                        echo "active";
+                        } ; ?>">Designer</a>
                 </li>
 
                 <?php if( $this->session->userdata('nama') == true) :?>

@@ -496,4 +496,10 @@ nav .navbar-nav .nav-item .nav-link.active {
 .section-catalog-detail {
   margin-top: 30px;
 }
+
+li a.active {
+  color: #ffca99 !important;
+  font-weight: 600;
+  text-decoration: none !important;
+} 
 /*# sourceMappingURL=main.css.map */

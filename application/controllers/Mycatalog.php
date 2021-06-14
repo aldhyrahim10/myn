@@ -65,7 +65,7 @@ class Mycatalog extends CI_Controller{
             //setting library upload
             $config = array (
                 'upload_path'    => './files/',
-                'allowed_types'  => 'gif|jpg|png',
+                'allowed_types'  => 'jpeg|jpg|png',
                 'max_size'       => 5000
             );
 
@@ -316,7 +316,7 @@ class Mycatalog extends CI_Controller{
             //setting library upload
             $config = array (
                 'upload_path'    => './files/',
-                'allowed_types'  => 'gif|jpg|png',
+                'allowed_types'  => 'jpeg|jpg|png',
                 'max_size'       => 5000
             );
 

@@ -13,7 +13,7 @@
 
                 <div class="col-lg-3">
                     <div class="designer-image">
-                        <img class="rounded-cirle" src="<?= base_url('files/'.$item['avatar_user']);?>" width="120px" alt="">
+                        <a href="<?= base_url('designer/detail/'.$item['id']);?>"><img class="rounded-cirle" src="<?= base_url('files/'.$item['avatar_user']);?>" width="120px" alt=""></a>
                     </div>
                     <div class="designer-name">
                         <h4><?= $item['nama'] ;?></h4>
