@@ -41,9 +41,11 @@
                                         <img class="designer-profile" src="<?= base_url('files/'.$catalog['profile']) ;?>" width="50px" alt="">
                                     </td>
                                     <td>
-                                        <p class="designer-name">
-                                            <?= $catalog['nama_designer'] ;?>
-                                        </p>
+                                        <a style="text-decoration: none; color: #000;" href="<?= base_url('designer/detail/'.$catalog['id_designer']);?>">
+                                            <p class="designer-name">
+                                                <?= $catalog['nama_designer'] ;?>
+                                            </p>
+                                        </a>
                                         <p class="designer">
                                             Designer
                                         </p>
