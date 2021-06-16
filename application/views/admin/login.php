@@ -8,8 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="<?= base_url('assets/favicon.ico');?>">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('assets/backend/vendor/fontawesome-free/css/all.min.css') ;?>" rel="stylesheet" type="text/css">

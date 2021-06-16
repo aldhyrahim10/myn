@@ -1,6 +1,6 @@
     <header class="header-home text-center">
         <div class="container-fluid">
-            <img class="image-header" src="<?= base_url('assets/frontend/images/header.jpg');?>" alt="">
+            <img class="image-header" src="<?= base_url('assets/frontend/images/header.png');?>" alt="">
 
             <h1 class="heading-home text-center">
                 The Room
@@ -31,11 +31,11 @@
                 </h2>
             </div>
 
-            <!-- <div class="menu-list text-center">
+            <div class="menu-list text-center">
                 <a href="#" class="btn btn-menu active">Kitchen Set</a>
                 <a href="#" class="btn btn-menu">Bedroom</a>
                 <a href="#" class="btn btn-menu">Living Room</a>
-            </div> -->
+            </div>
         </section>
 
         <section class="image-section text-center">
