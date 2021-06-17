@@ -48,7 +48,7 @@
                                     <a href="<?= base_url('admin/designer/delete/'.$item['id']) ;?>" class=" btn btn-danger rounded btn-sm"><i class="fas fa-trash-alt" title="delete"></i></a>
                                 <?php else :?>
                                     <a href="<?= base_url('admin/designer/detail/'.$item['id']) ;?>" class=" btn btn-info rounded btn-sm"><i class="fas fa-eye" title="view"></i></a>
-                                    <a href="<?= base_url('admin/designer/delete/'.$item['id']) ;?>" class=" btn btn-danger rounded btn-sm"><i class="fas fa-trash-alt" title="delete"></i></a>
+                                    <a href="<?= base_url('admin/designer/delete/'.$item['id']) ;?>" class=" btn btn-danger rounded btn-sm" onClick="return confirm('Apakah anda yakin?')"><i class="fas fa-trash-alt" title="delete"></i></a>
                                <?php endif ;?>
                             </td>
                         </tr>

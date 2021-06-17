@@ -74,4 +74,22 @@ class Designer extends CI_Controller{
 
         $this->load->view('theme/admin/index', $data);
     }
+
+    public function delete(){
+
+        $id = $this->uri->segment(4);
+
+        $data = $this->db->get_where('designer', ['id_designer' =>$id])->row_array();
+        $nama = $data['nama_designer']; 
+
+        $this->db->where('id_designer' , $id);
+        $this->db->delete('designer');
+
+        $this->db->where('nama', $nama);
+        $this->db->delete('user');
+
+        $this->session->set_flashdata('message', 'Sukses, Data berhasil dihapus');
+
+        redirect('admin/designer');
+    }
 }
