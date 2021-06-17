@@ -5,7 +5,7 @@
     <!-- <div class="sidebar-brand">
         <i class="fas fa-laugh-wink"></i>
     </div> -->
-    <div class="sidebar-brand-text mx-3">MYN</div>
+    <div class="sidebar-brand-text mx-3">MYN Interior</div>
 </a>
 
 <!-- Divider -->

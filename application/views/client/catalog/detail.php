@@ -52,7 +52,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            <a href="https://api.whatsapp.com/send?phone=<?= $catalog['telp_designer'];?>" class="btn btn-call" target="_blank">
+                            <a href="https://api.whatsapp.com/send?phone=<?= $catalog['telp_designer'];?>" class="btn btn-call mt-2" target="_blank">
                                 Hubungi Penjual
                             </a>
                         </div>

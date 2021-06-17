@@ -8,7 +8,7 @@
                 <div class="col-lg-6">
                     <div class="description-text">
                         <p class="description">
-                            MYN adalah sebuah platform untuk penyedia jasa desain interior dari seorang desain yang profesional
+                            MYN adalah sebuah platform untuk penyedia jasa design interior agar mempermudah masyarakat untuk mencari designer yang professional.
                         </p>
                         <p class="phone">
                             +62 81287412219
