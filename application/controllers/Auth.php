@@ -176,6 +176,9 @@ class Auth extends CI_Controller {
         $this->db->where('email_designer', $user_email);
         $this->db->update('designer', $input1);
 
+        $this->session->unset_userdata('nama');
+        $this->session->set_userdata('nama', $nama);
+
         $this->db->where('email', $user_email);
         $this->db->update('user', $input2);
 
