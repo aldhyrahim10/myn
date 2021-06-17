@@ -48,10 +48,10 @@
                         <img class="image-content" src="<?= base_url('assets/frontend/images/image2.png');?>" alt="">
                     </div>
                     <div class="col-lg-6">
-                        <img class="image-content" src="<?= base_url('assets/frontend/images/image1.png');?>" alt="">
+                        <img class="image-content" src="<?= base_url('assets/frontend/images/image3.png');?>" alt="">
                     </div>
                     <div class="col-lg-6">
-                        <img class="image-content" src="<?= base_url('assets/frontend/images/image2.png');?>" alt="">
+                        <img class="image-content" src="<?= base_url('assets/frontend/images/image4.png');?>" alt="">
                     </div>
                 </div>
             </div>
