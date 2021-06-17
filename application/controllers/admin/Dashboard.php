@@ -11,6 +11,13 @@ class Dashboard extends CI_Controller {
             redirect('admin/auth');
         }
 
+        if($this->session->userdata('nama') != 'admin'){
+
+            $this->session->unset_userdata('id');
+            $this->session->unset_userdata('nama');
+            $this->session->unset_userdata('email');
+        }
+
         $this->load->model('dashboard_model');
         
     }
